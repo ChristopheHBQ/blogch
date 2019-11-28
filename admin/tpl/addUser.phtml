@@ -4,37 +4,40 @@
             Nouveau Padawon
         </div>
         <div class="card-body">
-            <blockquote class="blockquote mb-0">
-                <label for="inputUsername" class="col-sm-6 col-form-label">Username</label>
-                <input class="form-control" type="text" placeholder="Username">
+            <form action="addUser.php" method="POST">
+                <blockquote class="blockquote mb-0">
+                    <label for="inputUsername" class="col-sm-6 col-form-label">Username</label>
+                    <input class="form-control <?php if(isset($error['username'])):?>alert-danger<?php endif?>" type="text" placeholder="Pseudo" name="username" value="<?=$username?>">
 
-                <label for="inputEmail" class="col-sm-6 col-form-label">email</label>
-                <input class="form-control" type="text" placeholder="email">
+                    <label for="inputEmail" class="col-sm-6 col-form-label">email</label>
+                    <input class="form-control <?=$checkemail?>" type="text" placeholder="email" name="email" value="<?=$email?>">
 
-                <label for="inputFirstname" class="col-sm-6 col-form-label">firstname</label>
-                <input class="form-control" type="text" placeholder="firstname">
+                    <label for="inputFirstname" class="col-sm-6 col-form-label">firstname</label>
+                    <input class="form-control <?=$checkfirstname?>" type="text" placeholder="firstname" name="firstname" value="<?=$firstname?>">
 
-                <label for="inputlastname" class="col-sm-6 col-form-label">lastname</label>
-                <input class="form-control" type="text" placeholder="lastname">
+                    <label for="inputlastname" class="col-sm-6 col-form-label">lastname</label>
+                    <input class="form-control <?=$checklastname?>" type="text" placeholder="lastname" name="lastname" value="<?=$lastname?>">
 
-                <label for="inputBio" class="col-sm-6 col-form-label">bio</label>
-                <textarea class="form-control" rows="3" id="bio"></textarea>
+                    <label for="inputBio" class="col-sm-6 col-form-label">bio</label>
+                    <textarea class="form-control <?=$checkbio?>" rows="3" id="bio" placeholder="bio" name="bio" ><?=$bio?></textarea>
 
-                <label for="inputPass" class="col-sm-6 col-form-label">mot de passe</label>
-                <input class="form-control" type="text" placeholder="mot de passe">
+                    <label for="inputPass" class="col-sm-6 col-form-label">mot de passe</label>
+                    <input class="form-control <?=$checkpasse?>" type="text" placeholder="mot de passe" name="passe1" value="<?=$passe1?>">
 
-                <label for="inputPass2" class="col-sm-6 col-form-label">confirmation mot de passe</label>
-                <input class="form-control" type="text" placeholder="confirmation mot de passe">
+                    <label for="inputPass2" class="col-sm-6 col-form-label">confirmation mot de passe</label>
+                    <input class="form-control <?=$checkpasse?>" type="text" placeholder="confirmation mot de passe" name="passe2" value="<?=$passe2?>">
 
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Role</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>ROLE_ADMIN</option>
-                        <option>ROLE_AUTHOR</option>
-                    </select>
-                </div>
-                    <a href="#" class="btn btn-primary">Enregistrer</a>
-            </blockquote>
+                    <div class="form-group">
+                        <label for="roleType">Role</label>
+                        <select class="form-control <?=$checkrole?>" id="roleType" name="role" placeholder="Statut" value="<?=$role?>">
+                            <option></option>
+                            <option>ROLE_ADMIN</option>
+                            <option>ROLE_AUTHOR</option>
+                        </select>
+                    </div>
+                        <input type="submit" class="btn btn-primary" value="<?=$submit?>">
+                </blockquote>
+            </form>
         </div>
     </div>
 </div>

@@ -5,6 +5,6 @@ const DB_USER = 'root';
 const DB_PASS = 'troiswa';
 
 const LAYOUT = 'layout';
-const TPL_PRE = 'tpl/';
-const TPL_PAS = '.phtml';
+const TPL_DIRECTORY = 'tpl/';
+const TPL_EXTENTION = '.phtml';
 
