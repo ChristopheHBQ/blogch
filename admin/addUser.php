@@ -76,7 +76,9 @@ if(array_key_exists('username',$_POST))
 
 
     if(count($error)!=0){
-        var_dump($error);
+
+        connexion();
+        
     }
     
     //if empty ($error);
@@ -86,4 +88,3 @@ if(array_key_exists('username',$_POST))
 include(TPL_DIRECTORY.LAYOUT.TPL_EXTENTION);
 
 
-//INSERT INTO `users` (`id`, `username`, `email`, `password`, `firstname`, `lastname`, `bio`, `created_date`, `last_login_date`, `role`, `avatar`) VALUES (NULL, 'jghj', 'ghjghjgh', 'jghjghj', 'ghjghjg', 'jghjghj', 'ghjghjghjgh', '2019-11-28 00:00:00', '2019-11-28 00:00:00', '', NULL);
