@@ -106,27 +106,14 @@ function loginUser()
 
 function listUser()
 {
-    try 
-    {
-        $dbh = connexion();
-        $sql = 'SELECT * 
-                FROM users';
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-            
-        return $users;
-    }
-    catch(PDOException $e)
-    {
-        $vue = 'erreur.phtml';
-        //Si une exception est envoyée par PDO (exemple : serveur de BDD innaccessible) on arrive ici
-        $messageErreur = 'Une erreur de connexion a eu lieu :'.$e->getMessage();
-    }
-    catch(Exception $e)
-    {
-        $vue = 'erreur.phtml';
-        //Si une exception est envoyée
-        $messageErreur =  'Erreur dans la page :'.$e->getMessage();
-    }
+    
+    $dbh = connexion();
+    $sql = 'SELECT * 
+            FROM users';
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        
+    return $users;
+   
 }
