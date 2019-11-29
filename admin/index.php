@@ -1,6 +1,6 @@
 <?php
 include('config/config.php');
-include('librairies/functions.php');
+include('librairies/userModel.php');
 include('librairies/db.lib.php');
 
 $vue='index';

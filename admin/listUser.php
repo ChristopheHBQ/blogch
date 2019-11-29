@@ -1,11 +1,15 @@
 <?php
 
 include('config/config.php');
-include('librairies/functions.php');
+include('librairies/userModel.php');
 include('librairies/db.lib.php');
 
 $vue='listUser';
 $title = 'Liste Utilisateurs';
 $activeMenu='Utilisateurs';
 
-include(TPL_PRE.LAYOUT.TPL_PAS);
+$users = listUser();
+
+include(TPL_DIRECTORY.LAYOUT.TPL_EXTENTION);
+
+

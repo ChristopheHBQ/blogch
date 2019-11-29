@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include('config/config.php');
 include('librairies/functions.php');
 include('librairies/db.lib.php');
@@ -17,3 +19,27 @@ $checkpasse = '';
 $checkname = '';
 
 include(TPL_DIRECTORY.LAYOUT.TPL_EXTENTION);
+
+
+if(array_key_exists('username',$_POST))
+{
+    $username  = $_POST['username'];
+    $passe = $_POST['passe'];
+    
+    
+    if(($passe !== '') !== true){
+        $error['pass'] = 'le mot de passe est vide';
+    }
+    
+    if(($username !== '') !== true){
+        $error['username'] = 'le pseudo est vide';
+    }
+
+
+    if(count($error)== 0){
+        $vue = login();
+        var_dump($_SESSION['connected']);
+        
+    }
+}
+    

@@ -1,7 +1,7 @@
 <?php
 
 include('config/config.php');
-include('librairies/functions.php');
+include('librairies/userModel.php');
 include('librairies/db.lib.php');
 
 $vue='addUser';
@@ -77,12 +77,14 @@ if(array_key_exists('username',$_POST))
 
 
     if(count($error)== 0){
+        $datecrea = new DateTime();
+        $passe = password_hash($passe1,PASSWORD_DEFAULT);
+        addUser($username, $email, $passe, $firstname, $lastname, $bio, $datecrea->format('Y-m-d H:i:s'), $role);
 
-        
-        insertInBase();
+        header('Location:listUser.php');
+        exit();
     }
     
-    //if empty ($error);
 
 }
 
