@@ -1,6 +1,7 @@
 <?php
 
 include('config/config.php');
+include('librairies/functions.php');
 include('librairies/db.lib.php');
 
 $vue='addUser';
@@ -75,10 +76,10 @@ if(array_key_exists('username',$_POST))
     }
 
 
-    if(count($error)!=0){
+    if(count($error)== 0){
 
-        connexion();
         
+        insertInBase();
     }
     
     //if empty ($error);

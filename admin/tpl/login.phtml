@@ -1,0 +1,21 @@
+<div class="col-sm-12 col-md-6">
+    <div class="card">
+        <div class="card-header bg-dark text-light">
+            Connexion
+        </div>
+        <div class="card-body">
+            <form action="login.php" method="POST">
+                <blockquote class="blockquote mb-0">
+                    <label for="inputUsername" class="col-sm-6 col-form-label">Username</label>
+                    <input class="form-control <?=$checkname?>" type="text" placeholder="Pseudo" name="username" value="<?=$username?>">
+
+                    <label for="inputPass" class="col-sm-6 col-form-label">mot de passe</label>
+                    <input class="form-control <?=$checkpasse?>" type="text" placeholder="mot de passe" name="passe" value="<?=$passe?>">
+
+                    
+                    <input type="submit" class="btn btn-primary" value="<?=$submit?>">
+                </blockquote>
+            </form>
+        </div>
+    </div>
+</div>

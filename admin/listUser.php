@@ -1,6 +1,7 @@
 <?php
 
 include('config/config.php');
+include('librairies/functions.php');
 include('librairies/db.lib.php');
 
 $vue='listUser';
