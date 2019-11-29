@@ -28,7 +28,7 @@ if(array_key_exists('username',$_POST))
     
     
     if(($passe !== '') !== true){
-        $error['pass'] = 'le mot de passe est vide';
+        $error['passe'] = 'le mot de passe est vide';
     }
     
     if(($username !== '') !== true){
@@ -37,7 +37,7 @@ if(array_key_exists('username',$_POST))
 
 
     if(count($error)== 0){
-        $vue = login();
+        $vue = loginUser();
         var_dump($_SESSION['connected']);
         
     }
