@@ -1,32 +1,32 @@
 <?php
 
 
-    function addUser($username,$email,$passe,$firstname,$lastname,$bio, $datecrea, $role)
+function addUser($username,$email,$passe,$firstname,$lastname,$bio, $datecrea, $role)
+{
+    try 
     {
-        try 
-        {
-            $dbh = connexion();
-            
-            $sql = 'INSERT INTO users(username,email,password,firstname,lastname,bio,created_date,role) 
-                    VALUES(:username,:email,:password,:firstname,:lastname,:bio,:created_date,:role)';
-            $insert = $dbh->prepare ($sql);
-            $insert->execute(array('username'=>$username, 'email'=>$email, 'password'=>$passe, 'firstname'=>$firstname, 'lastname'=>$lastname, 'bio'=>$bio,'created_date'=>$datecrea, 'role'=>$role));
+        $dbh = connexion();
+        
+        $sql = 'INSERT INTO users(username,email,password,firstname,lastname,bio,created_date,role) 
+                VALUES(:username,:email,:password,:firstname,:lastname,:bio,:created_date,:role)';
+        $insert = $dbh->prepare ($sql);
+        $insert->execute(array('username'=>$username, 'email'=>$email, 'password'=>$passe, 'firstname'=>$firstname, 'lastname'=>$lastname, 'bio'=>$bio,'created_date'=>$datecrea, 'role'=>$role));
 
-            return $dbh->lastInsertId();
-        }
-        catch(PDOException $e)
-        {
-            $vue = 'erreur.phtml';
-            //Si une exception est envoyée par PDO (exemple : serveur de BDD innaccessible) on arrive ici
-            $messageErreur = 'Une erreur de connexion a eu lieu :'.$e->getMessage();
-        }
-        catch(Exception $e)
-        {
-            $vue = 'erreur.phtml';
-            //Si une exception est envoyée
-            $messageErreur =  'Erreur dans la page :'.$e->getMessage();
-        } 
+        return $dbh->lastInsertId();
+    }
+    catch(PDOException $e)
+    {
+        $vue = 'erreur.phtml';
+        //Si une exception est envoyée par PDO (exemple : serveur de BDD innaccessible) on arrive ici
+        $messageErreur = 'Une erreur de connexion a eu lieu :'.$e->getMessage();
+    }
+    catch(Exception $e)
+    {
+        $vue = 'erreur.phtml';
+        //Si une exception est envoyée
+        $messageErreur =  'Erreur dans la page :'.$e->getMessage();
     } 
+} 
  
 
 
