@@ -1,0 +1,82 @@
+<h1>Liste des Articles</h1>
+        <div>
+            <a href="article.php" class="btn btn-primary mb-4">Articles</a>
+        </div>
+        <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Catégorie</th>
+                    <th scope="col">titre</th>
+                    <th scope="col">sous titre</th>
+                    <th scope="w-12">image</th>
+                    <th scope="col">status</th>
+                    <th class="col">Date de création</th>
+                    <th class="col">Date de publication</th>
+                    <th class="col">Auteur</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                  <?php foreach ($articles as $article) : ?>
+                    <tr>
+                        <td><a href="article.php?Id=<?= $aricle['id'];?>"><?= $article['id']; ?></a></td>
+                        <td><?= $article['categorie']; ?></td>
+                        <td><?= $article['title']; ?></td>
+                        <td><?= $article['subtitle']; ?></td>
+                        <td><?= $article['image']; ?></td>
+                        <td><?= $article['status']; ?></td>
+                        <td><?= $article['created_date']; ?></td>
+                        <td><?= $article['published_date']; ?></td>
+                        <td><?= $article['users']; ?></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td scope="col">
+                            <a href="#"><i class="fas fa-edit"></i></a>
+                            <a href="#"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                  <?php endforeach ?>
+
+                </tbody>
+              </table>
+
+              <div class="modal fade" id="image1" tabindex="-1" role="dialog" aria-labelledby="image1" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">image1</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                         <a href="img/1.jpg"><img src="img/1.jpg" alt="grlos chat" class="img-fluid""></a>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="image2" tabindex="-1" role="dialog" aria-labelledby="image2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">image2</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                             <a href="img/2.jpg"><img src="img/2.jpg" alt="grlos chat" class="img-fluid""></a>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 

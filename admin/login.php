@@ -54,4 +54,4 @@ if(array_key_exists('username',$_POST))
     }
 }
 
-include(TPL_DIRECTORY.login.TPL_EXTENTION);
+include(TPL_DIRECTORY.'login'.TPL_EXTENTION);

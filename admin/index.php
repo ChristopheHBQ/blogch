@@ -8,9 +8,8 @@ $vue='index';
 $title = 'Connexion';
 $activeMenu='Utilisateurs';
 
-$submit ='connexion';
 
-if(!isset($_SESSION['connected']) && $_SESSION['connected']===true)
+if(!isset($_SESSION['connected']) && $_SESSION['connected']!==true)
 {
     header('location:login.php');
     exit();
