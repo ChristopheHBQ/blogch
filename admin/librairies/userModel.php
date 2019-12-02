@@ -2,105 +2,84 @@
 
 
 function addUser($username,$email,$passe,$firstname,$lastname,$bio, $datecrea, $role)
-{
-    try 
-    {
-        $dbh = connexion();
-        
-        $sql = 'INSERT INTO users(username,email,password,firstname,lastname,bio,created_date,role) 
-                VALUES(:username,:email,:password,:firstname,:lastname,:bio,:created_date,:role)';
-        $insert = $dbh->prepare ($sql);
-        $insert->execute(array('username'=>$username, 'email'=>$email, 'password'=>$passe, 'firstname'=>$firstname, 'lastname'=>$lastname, 'bio'=>$bio,'created_date'=>$datecrea, 'role'=>$role));
+{  
+    $dbh = connexion();
+    
+    $sql = 'INSERT INTO users(username,email,password,firstname,lastname,bio,created_date,role) 
+            VALUES(:username,:email,:password,:firstname,:lastname,:bio,:created_date,:role)';
+    $insert = $dbh->prepare($sql);
+    $insert->execute(array('username'=>$username, 'email'=>$email, 'password'=>$passe, 'firstname'=>$firstname, 'lastname'=>$lastname, 'bio'=>$bio,'created_date'=>$datecrea, 'role'=>$role));
 
-        return $dbh->lastInsertId();
-    }
-    catch(PDOException $e)
-    {
-        $vue = 'erreur.phtml';
-        //Si une exception est envoyée par PDO (exemple : serveur de BDD innaccessible) on arrive ici
-        $messageErreur = 'Une erreur de connexion a eu lieu :'.$e->getMessage();
-    }
-    catch(Exception $e)
-    {
-        $vue = 'erreur.phtml';
-        //Si une exception est envoyée
-        $messageErreur =  'Erreur dans la page :'.$e->getMessage();
-    } 
+    return $dbh->lastInsertId();
 } 
+
+function checkUser($username)
+{
+    $dbh = connexion();
+    $sql = 'SELECT id, username
+            FROM users
+            WHERE username = :username'; 
+    $stmt = $dbh -> prepare($sql);
+    $stmt -> bindValue(':username', $username);
+    $stmt -> execute();
+    $checkIdUsername = $stmt -> fetch(PDO::FETCH_ASSOC);
+    if($checkIdUsername !== false)
+        return true;
+
+    return false;
+}
+
+function checkMail($email)
+{
+    $dbh = connexion();
+    $sql = 'SELECT id, email
+            FROM users
+            WHERE email = :email'; 
+    $stmt = $dbh -> prepare($sql);
+    $stmt -> bindValue(':email', $email);
+    $stmt -> execute();
+    $checkIdUsermail = $stmt -> fetch(PDO::FETCH_ASSOC);
+    if($checkIdUsermail !== false)
+        return true;
+
+    return false;
+}
  
 
 
-function updateLastLoginUser() 
+function updateLastLoginUser($username) 
+{    
+    $user = getUser($username);
+    $userid = $user['id'];
+    var_dump($userid);
+    $date = Date('Y-m-d H:i:s');
+    var_dump($date);
+
+    $dbh = connexion();
+    $sql = 'UPDATE users
+            SET  last_login_date = :date
+            WHERE id = :id';
+    $stmt = $dbh -> prepare($sql);
+    $stmt ->bindValue(':date',$date);
+    $stmt ->bindValue(':id', $userid);
+    $stmt -> execute();
+}
+
+
+
+function getUser($username)
 {
-    try 
-    {
-        $userid = $_SESSION['id'];
-        $date = new DateTime();;
+    $dbh = connexion();
+    $sql = 'SELECT *
+            FROM users
+            WHERE username = :username';
+    $stmt = $dbh->prepare($sql);
+    $stmt -> bindValue(':username' , $username);
+    $stmt -> execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $dbh = connexion();
-        $sql = 'UPDATE users
-                SET  last_login_date = :date
-                WHERE id = :userid';
-        $stmt = $dbh -> prepare($sql);
-        $stmt ->bindValue(':date',$date);
-        $stmt ->bindValue(':userid', $userid);
-        $stmt -> execute();
-    }
-    catch(PDOException $e)
-    {
-        $vue = 'erreur.phtml';
-        //Si une exception est envoyée par PDO (exemple : serveur de BDD innaccessible) on arrive ici
-        $messageErreur = 'Une erreur de connexion a eu lieu :'.$e->getMessage();
-    }
-    catch(Exception $e)
-    {
-        $vue = 'erreur.phtml';
-        //Si une exception est envoyée
-        $messageErreur =  'Erreur dans la page :'.$e->getMessage();
-    }  
-} 
+}
 
-
-
-function loginUser()
-{
-    try
-    {
-        $username  = $_POST['username'];
-        $passe = $_POST['passe'];
-
-        $dbh = connexion();
-        $sql = 'SELECT *
-                FROM users
-                WHERE username = :username';
-        $stmt = $dbh->prepare($sql);
-        $stmt -> bindValue(':username' , $username);
-        $stmt -> execute();
-        $_SESSION = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if(password_verify($passe, $_SESSION['password'] ))
-        {
-            $_SESSION['connected'] = true;
-            timelog();
-            $vue = 'listUser';
-            return $vue;
-        }
-        $vue = 'login';
-        return $vue;
-    }
-    catch(PDOException $e)
-    {
-        $vue = 'erreur.phtml';
-        //Si une exception est envoyée par PDO (exemple : serveur de BDD innaccessible) on arrive ici
-        $messageErreur = 'Une erreur de connexion a eu lieu :'.$e->getMessage();
-    }
-    catch(Exception $e)
-    {
-        $vue = 'erreur.phtml';
-        //Si une exception est envoyée
-        $messageErreur =  'Erreur dans la page :'.$e->getMessage();
-    } 
-} 
  
 
 

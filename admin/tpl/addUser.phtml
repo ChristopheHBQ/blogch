@@ -10,26 +10,26 @@
                     <input class="form-control <?php if(isset($error['username'])):?>alert-danger<?php endif?>" type="text" placeholder="Pseudo" name="username" value="<?=$username?>">
 
                     <label for="inputEmail" class="col-sm-6 col-form-label">email</label>
-                    <input class="form-control <?=$checkemail?>" type="text" placeholder="email" name="email" value="<?=$email?>">
+                    <input class="form-control <?php if(isset($error['email'])):?>alert-danger<?php endif?>" type="text" placeholder="email" name="email" value="<?=$email?>">
 
                     <label for="inputFirstname" class="col-sm-6 col-form-label">firstname</label>
-                    <input class="form-control <?=$checkfirstname?>" type="text" placeholder="firstname" name="firstname" value="<?=$firstname?>">
+                    <input class="form-control <?php if(isset($error['firstname'])):?>alert-danger<?php endif?>" type="text" placeholder="firstname" name="firstname" value="<?=$firstname?>">
 
                     <label for="inputlastname" class="col-sm-6 col-form-label">lastname</label>
-                    <input class="form-control <?=$checklastname?>" type="text" placeholder="lastname" name="lastname" value="<?=$lastname?>">
+                    <input class="form-control <?php if(isset($error['lastname'])):?>alert-danger<?php endif?>" type="text" placeholder="lastname" name="lastname" value="<?=$lastname?>">
 
                     <label for="inputBio" class="col-sm-6 col-form-label">bio</label>
-                    <textarea class="form-control <?=$checkbio?>" rows="3" id="bio" placeholder="bio" name="bio" ><?=$bio?></textarea>
+                    <textarea class="form-control <?php if(isset($error['bio'])):?>alert-danger<?php endif?>" rows="3" id="bio" placeholder="bio" name="bio" ><?=$bio?></textarea>
 
                     <label for="inputPass" class="col-sm-6 col-form-label">mot de passe</label>
-                    <input class="form-control <?=$checkpasse?>" type="text" placeholder="mot de passe" name="passe1" value="<?=$passe1?>">
+                    <input class="form-control <?php if(isset($error['passlen'])):?>alert-danger<?php endif?>" type="password" placeholder="mot de passe" name="passe1" value="<?=$passe1?>">
 
                     <label for="inputPass2" class="col-sm-6 col-form-label">confirmation mot de passe</label>
-                    <input class="form-control <?=$checkpasse?>" type="text" placeholder="confirmation mot de passe" name="passe2" value="<?=$passe2?>">
+                    <input class="form-control <?php if(isset($error['pass'])):?>alert-danger<?php endif?>" type="password" placeholder="confirmation mot de passe" name="passe2" value="<?=$passe2?>">
 
                     <div class="form-group">
                         <label for="roleType">Role</label>
-                        <select class="form-control <?=$checkrole?>" id="roleType" name="role" placeholder="Statut" value="<?=$role?>">
+                        <select class="form-control <?php if(isset($error['role'])):?>alert-danger<?php endif?>" id="roleType" name="role" placeholder="Statut" value="<?=$role?>">
                             <option></option>
                             <option>ROLE_ADMIN</option>
                             <option>ROLE_AUTHOR</option>
