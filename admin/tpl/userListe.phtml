@@ -1,7 +1,7 @@
-<p class="text-right">Bienvenue, Christophe HAZEBROUCQ</p>
+<p class="text-right">Bienvenue, <?= $connected;?></p>
         <h1>Liste des Utilisateurs</h1>
         <div>
-            <a href="addUser.php" class="btn btn-primary mb-4">Ajouter un utilisateur</a>
+            <a href="userAdd.php" class="btn btn-primary mb-4">Ajouter un utilisateur</a>
         </div>
         <table class="table table-dark">
                 <thead>
@@ -19,7 +19,7 @@
                 
                   <?php foreach ($users as $user) : ?>
                     <tr>
-                        <td><a href="listUser.php?Id=<?= $user['id'];?>"><?= $user['id']; ?></a></td>
+                        <td><a href="userDel.php?Id=<?= $user['id'];?>"><?= $user['id']; ?></a></td>
                         <td><?= $user['username']; ?></td>
                         <td><?= $user['firstname'].' '.$user['lastname']; ?></td>
                         <td><?= $user['bio']; ?></td>

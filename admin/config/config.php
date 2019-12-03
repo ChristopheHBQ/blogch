@@ -8,6 +8,7 @@ const LAYOUT = 'layout';
 const TPL_DIRECTORY = 'tpl/';
 const TPL_EXTENTION = '.phtml';
 
-const TPL_LIBRARY = 'libraries/';
+const LBI_DIRECTORY = 'libraries/';
+const 
 
 

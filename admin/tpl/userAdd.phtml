@@ -1,10 +1,11 @@
+<p class="text-right">Bienvenue, <?= $connected;?></p>
 <div class="col-sm-12 col-md-8">
     <div class="card">
         <div class="card-header bg-dark text-light">
             Nouveau Padawon
         </div>
         <div class="card-body">
-            <form action="addUser.php" method="POST">
+            <form action="userAdd.php" method="POST">
                 <blockquote class="blockquote mb-0">
                     <label for="inputUsername" class="col-sm-6 col-form-label">Username</label>
                     <input class="form-control <?php if(isset($error['username'])):?>alert-danger<?php endif?>" type="text" placeholder="Pseudo" name="username" value="<?=$username?>">

@@ -6,11 +6,16 @@ include('config/config.php');
 include('librairies/userModel.php');
 include('librairies/db.lib.php');
 
-$vue='listUser';
-$admin='admin';
+$vue='userListe';
+$connected = connected();
 $title = 'Liste Utilisateurs';
 $activeMenu='Utilisateurs';
 
+if(!isset($_SESSION['connected']) && $_SESSION['connected']!==true)
+{
+    header('location:login.php');
+    exit();
+}
 
 /**
  * On appéle la fonction de listing des utilisateurs son retour est renvoyé sur la variable users

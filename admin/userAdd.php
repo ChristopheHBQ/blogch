@@ -6,8 +6,8 @@ include('config/config.php');
 include('librairies/userModel.php');
 include('librairies/db.lib.php');
 
-$vue='addUser';
-$admin = 'admin';
+$vue='userAdd';
+$connected = connected();
 $title = 'Nouvel utilisateur';
 $activeMenu ='Utilisateurs';
 
@@ -23,6 +23,11 @@ $role ='';
 $submit ='enregistrer';
 $error = [];
 
+if(!isset($_SESSION['connected']) && $_SESSION['connected']!==true)
+{
+    header('location:login.php');
+    exit();
+}
 
 try 
 {

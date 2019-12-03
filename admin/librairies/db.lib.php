@@ -8,5 +8,15 @@ function connexion()
     return $dbh;
 }
 
+function connected()
+{
+    if(!isset($_SESSION['connected']) && $_SESSION['connected']!==true)
+    {
+        $connected = 'Not connected';
+        exit();
+    }
+    $connected = $_SESSION['user']['username'];
+    return $connected;
 
+}
 

@@ -11,6 +11,14 @@ include('librairies/db.lib.php');
 $vue='article';
 $title = 'article';
 $activeMenu ='article';
+$connected = connected();
+
+if(!isset($_SESSION['connected']) && $_SESSION['connected']!==true)
+{
+    header('location:login.php');
+    exit();
+}
+
 
 $articles=listArticle();
 

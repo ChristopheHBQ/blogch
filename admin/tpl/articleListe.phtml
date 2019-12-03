@@ -20,7 +20,7 @@
                 
                   <?php foreach ($articles as $article) : ?>
                     <tr>
-                        <td><a href="articleListe.php?Id=<?= $aricle['id'];?>"><?= $article['id']; ?></a></td>
+                        <td><a href="articleEdi.php?Id=<?= $aricle['id'];?>"><?= $article['id']; ?></a></td>
                         <td><?= $article['categorie']; ?></td>
                         <td><?= $article['title']; ?></td>
                         <td><?= $article['subtitle']; ?></td>
@@ -32,8 +32,8 @@
                         <td>1</td>
                         <td>1</td>
                         <td scope="col">
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash-alt"></i></a>
+                            <a href="articleEdi.php?Id=<?= $aricle['id'];?>"><i class="fas fa-edit"></i></a>
+                            <a href="articleDel.php?Id=<?= $aricle['id'];?>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                   <?php endforeach ?>
