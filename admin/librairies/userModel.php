@@ -51,9 +51,9 @@ function updateLastLoginUser($username)
 {    
     $user = getUser($username);
     $userid = $user['id'];
-    var_dump($userid);
+ 
     $date = Date('Y-m-d H:i:s');
-    var_dump($date);
+
 
     $dbh = connexion();
     $sql = 'UPDATE users

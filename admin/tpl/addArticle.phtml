@@ -8,7 +8,7 @@
                 <blockquote class="blockquote mb-0">
                     <div class="form-group">
                         <label for="Categorie">Categorie</label>
-                        <select class="form-control <?php if(isset($error['Categorie'])):?>alert-danger<?php endif?>" id="Categorie" name="Categorie" placeholder="Categorie" value="<?=$Categorie?>">
+                        <select class="form-control <?php if(isset($error['Categorie'])):?>alert-danger<?php endif?>" id="Categorie" name="Categorie" placeholder="Categorie" value="<?=$articleCategorie?>">
                         <option selected="selected"></option>
                         <?php foreach ($categories as $categorie) : ?>
                             <option><?= $categorie['categorie']; ?></option>
@@ -16,19 +16,19 @@
                         </select>
                     </div>
                     <label for="inputtitle" class="col-sm-6 col-form-label">title</label>
-                    <input class="form-control <?php if(isset($error['title'])):?>alert-danger<?php endif?>" type="text" placeholder="titre" name="title" value="<?=$title?>">
+                    <input class="form-control <?php if(isset($error['title'])):?>alert-danger<?php endif?>" type="text" placeholder="titre" name="title" value="<?=$articletitle?>">
 
                     <label for="inputsubtitle" class="col-sm-6 col-form-label">Subtitle</label>
-                    <input class="form-control <?php if(isset($error['Subtitle'])):?>alert-danger<?php endif?>" type="text" placeholder="Sous-Title" name="subtitle" value="<?=$subtitle?>">
+                    <input class="form-control <?php if(isset($error['Subtitle'])):?>alert-danger<?php endif?>" type="text" placeholder="Sous-Title" name="subtitle" value="<?=$articlesubtitle?>">
 
                     <label for="inputimage" class="col-sm-6 col-form-label">Image</label>
-                    <input class="form-control <?php if(isset($error['image'])):?>alert-danger<?php endif?>" type="text" placeholder="image" name="image" value="<?=$image?>">
+                    <input class="form-control <?php if(isset($error['image'])):?>alert-danger<?php endif?>" type="text" placeholder="image" name="image" value="<?=$articleimage?>">
 
                     <label for="inputstatus" class="col-sm-6 col-form-label">status</label>
-                    <input class="form-control <?php if(isset($error['status'])):?>alert-danger<?php endif?>" type="text" placeholder="status" name="status" value="<?=$status?>">
+                    <input class="form-control <?php if(isset($error['status'])):?>alert-danger<?php endif?>" type="text" placeholder="status" name="status" value="<?=$articlestatus?>">
 
-                    <label for="inputpublished_date" class="col-sm-6 col-form-label">published_date</label>
-                    <textarea class="form-control <?php if(isset($error['published_date'])):?>alert-danger<?php endif?>" rows="3" id="published_date" placeholder="date de publication" name="published_date" ><?=$published_date?></textarea>
+                    <label for="inputpublished_date" class="col-sm-6 col-form-label">contenu</label>
+                    <textarea class="form-control <?php if(isset($error['published_date'])):?>alert-danger<?php endif?>" rows="3" id="published_date" placeholder="date de publication" name="contenu" ><?=$articlecontent?></textarea>
 
                     <input type="submit" class="btn btn-primary" value="<?=$submit?>">
                 </blockquote>

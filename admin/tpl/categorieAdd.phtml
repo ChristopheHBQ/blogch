@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-sm-12 col-md-4">
+        <div class="card">
+            <div class="card-header bg-dark text-light">
+                Catégorie
+            </div>
+            <div class="card-body">
+                <form action="categorie.php" method="POST">
+                    <blockquote class="blockquote mb-0">
+                        <label for="inputtitle" class="col-sm-6 col-form-label">libélé</label>
+                        <input class="form-control <?php if(isset($error['libele'])):?>alert-danger<?php endif?>" type="text" placeholder="titre" name="libele" value="<?=$libele?>">
+
+                        <div class="form-group">
+                        <label for="categorie">Categorie</label>
+                        <select class="form-control " id="Categorie" name="libeleParent" placeholder="parent" value="<?=$libeleParent?>">
+                            <option value="0">Aucune</option>
+                        <?php foreach ($categories as $categorie) : ?>
+                            <option value="<?= $categorie['id']; ?>"><?= $categorie['libele']; ?></option>
+                        <?php endforeach ?>
+                        </select>
+                        </div>                    
+
+                        <input type="submit" class="btn btn-primary" value="<?=$submit?>">
+                    </blockquote>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
