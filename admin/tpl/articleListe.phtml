@@ -1,6 +1,6 @@
 <h1>Liste des Articles</h1>
         <div>
-            <a href="article.php" class="btn btn-primary mb-4">Articles</a>
+            <a href="articleListe.php" class="btn btn-primary mb-4">Articles</a>
         </div>
         <table class="table table-dark">
                 <thead>
@@ -20,7 +20,7 @@
                 
                   <?php foreach ($articles as $article) : ?>
                     <tr>
-                        <td><a href="article.php?Id=<?= $aricle['id'];?>"><?= $article['id']; ?></a></td>
+                        <td><a href="articleListe.php?Id=<?= $aricle['id'];?>"><?= $article['id']; ?></a></td>
                         <td><?= $article['categorie']; ?></td>
                         <td><?= $article['title']; ?></td>
                         <td><?= $article['subtitle']; ?></td>

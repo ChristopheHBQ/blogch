@@ -26,7 +26,7 @@ $error = [];
 
 try 
 {
-    var_dump($_POST);
+    
     if(array_key_exists('username',$_POST))
     {
         $username  = $_POST['username'];
@@ -38,8 +38,6 @@ try
         $passe2 = $_POST['passe2'];
         $role = $_POST['role'];
         
-        var_dump($username);
-        var_dump(checkUser($username));
 
         if(strlen($passe1) < '4')
         {

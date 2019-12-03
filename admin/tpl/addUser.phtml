@@ -18,8 +18,8 @@
                     <label for="inputlastname" class="col-sm-6 col-form-label">lastname</label>
                     <input class="form-control <?php if(isset($error['lastname'])):?>alert-danger<?php endif?>" type="text" placeholder="lastname" name="lastname" value="<?=$lastname?>">
 
-                    <label for="inputBio" class="col-sm-6 col-form-label">bio</label>
-                    <textarea class="form-control <?php if(isset($error['bio'])):?>alert-danger<?php endif?>" rows="3" id="bio" placeholder="bio" name="bio" ><?=$bio?></textarea>
+                    <label for="inputBio"  class="col-sm-6 col-form-label ">bio</label>
+                    <textarea id='mytextarea' class="form-control <?php if(isset($error['bio'])):?>alert-danger<?php endif?>" rows="3" id="bio" placeholder="bio" name="bio" ><?=$bio?></textarea>
 
                     <label for="inputPass" class="col-sm-6 col-form-label">mot de passe</label>
                     <input class="form-control <?php if(isset($error['passlen'])):?>alert-danger<?php endif?>" type="password" placeholder="mot de passe" name="passe1" value="<?=$passe1?>">

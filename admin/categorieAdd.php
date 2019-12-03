@@ -15,7 +15,6 @@ $error = [];
 
 $libele = '';
 $libeleParent = '';
-$libeleIDParent = '';
 $categories = '';
 
 if(!isset($_SESSION['connected']) && $_SESSION['connected']!==true)
@@ -44,7 +43,9 @@ try
         
         if(count($error)== 0)
         {   
-            addCate($libele, $libeleIDParent);
+            if($libeleParent == 0) 
+                $libeleParent = 'NULL';
+            addCate($libele, $libeleParent);
             header('Location:categorieListe.php');
 
             exit();

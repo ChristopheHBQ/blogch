@@ -29,31 +29,38 @@ function checkCategorieLibele($libele)
     return false;
 }
 
-function addCate($libele, $libeleIDParent)
+function addCate($libele, $libeleParent=NULL)
 {
     $dbh = connexion();
     $sql = 'INSERT INTO categories(libele, categories_id) 
             VALUES(:libele,:categories_id)';
     $insert = $dbh -> prepare($sql);
     $insert -> bindValue(':libele', $libele);
-    $insert -> bindValue(':categories_id', $libeleIDParent);
+    $insert -> bindValue(':categories_id', $libeleParent);
     $insert-> execute();
-    $dbh = $insert->fetch(PDO::FETCH_ASSOC); 
 
     return $dbh->lastInsertId();
 }
 
-function getIDCate($libeleParent)
+//function getIDCate($libeleParent)
+//{
+//    $dbh = connexion();
+//    $sql = 'SELECT id
+//            FROM categories
+//            WHERE libele = :libele';
+//    $stmt = $dbh->prepare($sql);
+//    $stmt -> bindValue(':libele' , $libeleParent);
+//    $stmt -> execute();
+//    $idCatch = $stmt->fetch(PDO::FETCH_ASSOC);
+//    return intval($idCatch['id']);
+//}
+
+function deleteCat($id)
 {
-    $dbh = connexion();
-    $sql = 'SELECT id
-            FROM categories
-            WHERE libele = :libele';
-    $stmt = $dbh->prepare($sql);
-    $stmt -> bindValue(':libele' , $libeleParent);
+    $dbh = connexion();  
+    $sql = 'DELETE FROM categories
+            WHERE id = :id';
+    $stmt = $dbh -> prepare($sql);
+    $stmt -> bindValue('id',$id);
     $stmt -> execute();
-    $idCatch = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    return intval($idCatch['id']);
-
 }
